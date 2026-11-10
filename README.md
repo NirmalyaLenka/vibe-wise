@@ -232,6 +232,33 @@ Run `claude plugin list` to check the installed version.
 
 ---
 
+## Skills & technologies
+
+`Python`
+
+
+## Repository structure
+
+Key files and folders (not exhaustive):
+
+- `.claude-plugin/icon.svg`
+- `.claude-plugin/marketplace.json`
+- `.claude-plugin/plugin.json`
+- `LICENSE`
+- `README.md`
+- `assets/vibewise-icon.png`
+- `docs/development.md`
+- `hooks/hooks.json`
+- `hooks/session_start.py`
+- `tests/test_reset.py`
+- `tests/test_session_start.py`
+
+
+## How it works
+
+Python source is present, including `hooks/session_start.py`. Review configuration and dependencies before running; use a virtual environment and follow the project's setup instructions.
+
+
 ## Maintenance & Audit
 
 - **Audit date:** 10 November 2026
