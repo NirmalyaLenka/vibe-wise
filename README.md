@@ -256,7 +256,14 @@ Key files and folders (not exhaustive):
 
 ## How it works
 
-Python source is present, including `hooks/session_start.py`. Review configuration and dependencies before running; use a virtual environment and follow the project's setup instructions.
+- `skills/learn/` contains the learning workflow and the Markdown templates used for saved context.
+- `hooks/hooks.json` registers `hooks/session_start.py` for Claude Code session-start events. The hook reads the event JSON and, when active project learning notes exist, emits instructions to restore context; it does not write notes.
+- `skills/reset/reset.py` is a preview-first helper for resetting the current project's learning notes. The reset skill requires explicit confirmation and saves a backup under the notes directory's `backups/` folder before replacing the active notes. It does not reset application code.
+- `.claude-plugin/` contains plugin metadata; `tests/` contains the Python unit tests.
+
+No third-party Python packages are required for the hook or tests. Use Python 3.8 or newer. For local checks and manual Claude Code walkthroughs, follow [Development](docs/development.md).
+
+**Safe first run:** install and validate the plugin before enabling it in a real project. If testing reset behavior, use a disposable project with sample learning notes first. Never supply a reset confirmation token unless it matches a fresh preview for the same project and unchanged notes.
 
 
 ## Maintenance & Audit
